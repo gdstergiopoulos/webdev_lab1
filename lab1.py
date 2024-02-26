@@ -10,7 +10,8 @@ def more(text):
             if reply == 'n':
                 break
 
-url = 'http://python.org/'  # προσδιορισμός του url
+url = input("Insert a valid URL: ")  # προσδιορισμός του url
+
 
 with requests.get(url) as response:  # το αντικείμενο response
     # html = response.text
@@ -27,5 +28,3 @@ with requests.get(url) as response:  # το αντικείμενο response
     cookies=response.cookies.get_dict()
 
     print(cookies)
-    print("test")
-    print("test2")
