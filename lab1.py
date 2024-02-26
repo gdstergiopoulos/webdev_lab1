@@ -31,9 +31,11 @@ with requests.get(url) as response:  # το αντικείμενο response
     #c) cookies and expiration
     cookies=response.headers.get("Set-Cookie")
     cooklist=response.cookies.itervalues()
-    print(cooklist)
-    print(cookies)
+    # print(cooklist)
+    # print(cookies)
 
+    x=cookies.split(",")
+    print(x)
     pattern = r'(\w+)=.*?expires=([A-Za-z]+), (\d{2}-[A-Za-z]+-\d{4})'
 
     # Find all matches
