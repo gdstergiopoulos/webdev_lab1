@@ -1,5 +1,5 @@
 import requests  # εισαγωγή της βιβλιοθήκης
-
+import re
 def more(text):
     count = 0
     for line in text.split('\n'):
@@ -30,4 +30,17 @@ with requests.get(url) as response:  # το αντικείμενο response
 
     #c) cookies and expiration
     cookies=response.headers.get("Set-Cookie")
+    cooklist=response.cookies.itervalues()
+    print(cooklist)
     print(cookies)
+
+    pattern = r'(\w+)=.*?expires=([A-Za-z]+), (\d{2}-[A-Za-z]+-\d{4})'
+
+    # Find all matches
+    matches = re.findall(pattern, cookies)
+
+    # Iterate over matches and print cookie name and expiration date
+    for match in matches:
+        cookie_name = match[0]
+        expiration_time = match[2]
+        print(f"Cookie Name: {cookie_name}, Expiration Date: {expiration_time}")
