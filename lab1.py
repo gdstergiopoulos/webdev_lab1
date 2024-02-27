@@ -24,25 +24,16 @@ with requests.get(url) as response:  # το αντικείμενο response
     #b) the sw that the server uses to response
     server= response.headers.get("Server")
     if server:
-        print(f"The server is {server}")
+        print(f"\nThe server is {server}")
     else:
         print("No server found")
 
     #c) cookies and expiration
     cookies=response.headers.get("Set-Cookie")
-    cooklist=response.cookies.itervalues()
-    # print(cooklist)
-    # print(cookies)
+    if (cookies==None):
+        print("This site does not use Cookies")
+    else:
+        print("\nThe site uses the Cookies bellow: \n")
+        print(cookies)
 
-    x=cookies.split(",")
-    print(x)
-    pattern = r'(\w+)=.*?expires=([A-Za-z]+), (\d{2}-[A-Za-z]+-\d{4})'
-
-    # Find all matches
-    matches = re.findall(pattern, cookies)
-
-    # Iterate over matches and print cookie name and expiration date
-    for match in matches:
-        cookie_name = match[0]
-        expiration_time = match[2]
-        print(f"Cookie Name: {cookie_name}, Expiration Date: {expiration_time}")
+   
