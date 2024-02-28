@@ -31,9 +31,14 @@ with requests.get(url) as response:  # το αντικείμενο response
     #c) cookies and expiration
     cookies=response.headers.get("Set-Cookie")
     if (cookies==None):
-        print("This site does not use Cookies")
+        print("\nThis site does not use Cookies")
     else:
         print("\nThe site uses the Cookies bellow: \n")
         print(cookies)
+    
+   
+        
+
+    
 
    
