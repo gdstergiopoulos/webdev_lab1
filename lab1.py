@@ -1,5 +1,5 @@
 import requests  # εισαγωγή της βιβλιοθήκης
-import re
+# import re
 def more(text):
     count = 0
     for line in text.split('\n'):
@@ -58,6 +58,7 @@ with requests.get(url) as response:  # το αντικείμενο response
             else:
                 continue
 
+    print("\n###Cookie name and Expiration Date###: ")
     for i in range(len(cookiename_list)):
         print("Cookie name: "+cookiename_list[i]+" and "+expiration_date[i])
 
