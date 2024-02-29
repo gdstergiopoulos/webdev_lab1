@@ -48,15 +48,18 @@ with requests.get(url) as response:  # το αντικείμενο response
     #the use of regex is not required (mentioned in lab)
     expiration_date=[]
     z=cookies.split(";")
-    for i in range(0,len(z)):
+    
+    for i in range(len(z)):
         for j in cookiename_list:
             if j in z[i]:
-                if("expires" in z[i+1]):
-                    expiration_date.append(z[i+1])
-                else:
-                    expiration_date.append("Unknown")
-            else:
-                continue
+                count=1
+                while("expires" not in z[i+count]):
+                    count+=1
+                expiration_date.append(z[i+count])
+
+                        
+                
+
 
     print("\n###Cookie name and Expiration Date###: ")
     for i in range(len(cookiename_list)):
