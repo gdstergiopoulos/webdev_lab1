@@ -38,35 +38,14 @@ with requests.get(url) as response:  # το αντικείμενο response
     
 
 
+    print("\n")
     cookiename_list=[]
     x=response.cookies.get_dict().keys()
     for i in x:
-        cookiename_list.append(i)
-        # print(i)
+        print("Cookie Name: "+i)
+
+    print("\nNote:\nSta proigoumena commits exei ginei prospathia gia ektiposi ton info xoris xrisi regex (ipothike sto lab oti den xreiazetai)\nGia site me polla cookies parousiaze lathi opote ekana\nroll back se mia ekdosi opou ektiponontai ta names ton cookies alla kai olo to Set-Cookie mesa sto opoio fainontai ta expire dates")
     
-    #An atempt to print only information needed, without the use of regex. It will not work if the field after the name of the cookie is not the expiration date.
-    #the use of regex is not required (mentioned in lab)
-    expiration_date=[]
-    z=cookies.split(";")
-    
-    for i in range(len(z)):
-        for j in cookiename_list:
-            if j in z[i]:
-                count=1
-                while("expires" not in z[i+count]):
-                    count+=1
-                expiration_date.append(z[i+count])
-
-                        
-                
-
-
-    print("\n###Cookie name and Expiration Date###: ")
-    for i in range(len(cookiename_list)):
-        print("Cookie name: "+cookiename_list[i]+" and "+expiration_date[i])
-
-
-        
 
     
 
