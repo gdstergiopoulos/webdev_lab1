@@ -1,3 +1,5 @@
+#up1083861 Lab 1- Web Dev
+#HTTP headers get-response
 import requests  # εισαγωγή της βιβλιοθήκης
 # import re
 def more(text):
